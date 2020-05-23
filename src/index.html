@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        window.onload = async function() {
+            let data = await fetch("http://host.docker.internal:8081/api");
+            let jsonData = await data.json();
+            document.getElementById('text').innerHTML = jsonData.hello;
+        }
+    </script>
+    <body>
+        <h1>Hello</h1>
+        <div id="text"></div>
+    </body>
+</html>
