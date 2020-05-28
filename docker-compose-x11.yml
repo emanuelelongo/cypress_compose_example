@@ -15,6 +15,9 @@ services:
     depends_on:
       - app
       - mockserver
+    environment:
+      - DISPLAY=host.docker.internal:0
     volumes:
       - $PWD/e2e:/e2e
-    entrypoint: cypress run -P /e2e
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    entrypoint: cypress open -P /e2e
